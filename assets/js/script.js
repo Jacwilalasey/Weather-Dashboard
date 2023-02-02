@@ -3,14 +3,14 @@ $('#currentDay').text(moment().format("dddd, MMMM Do YY, h:mm a"));
 $(document).ready(function () {
 
   //Pulls the current date
-  let NowMoment = moment().format("l");
+  let NowMoment = moment().format("dddd, Do of MMM");
   
   //adds days to moment for forecast
-  let day1 = moment().add(1, "days").format("l");
-  let day2 = moment().add(2, "days").format("l");
-  let day3 = moment().add(3, "days").format("l");
-  let day4 = moment().add(4, "days").format("l");
-  let day5 = moment().add(5, "days").format("l");
+  let day1 = moment().add(1, "days").format("dddd, Do");
+  let day2 = moment().add(2, "days").format("dddd, Do");
+  let day3 = moment().add(3, "days").format("dddd, Do");
+  let day4 = moment().add(4, "days").format("dddd, Do");
+  let day5 = moment().add(5, "days").format("dddd, Do");
 
  //global variables
   let city;
@@ -87,7 +87,6 @@ $(document).ready(function () {
       let cityCond = response.weather[0].description;
       let cityTemp = response.main.temp;
       let cityHum = response.main.humidity;
-      let cityWind = response.wind.speed;
       let icon = response.weather[0].icon;
       $("#icon").html(
         `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`
@@ -96,7 +95,6 @@ $(document).ready(function () {
       $("#city-cond").text("Current Conditions: " + cityCond);
       $("#temp").text("Current Temp (F): " + cityTemp.toFixed(1));
       $("#humidity").text("Humidity: " + cityHum + "%");
-      $("#wind-speed").text("Wind Speed: " + cityWind + "mph");
       $("#date1").text(day1);
       $("#date2").text(day2);
       $("#date3").text(day3);
