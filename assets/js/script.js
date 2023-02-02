@@ -1,5 +1,3 @@
-'use strict';
-
 $(document).ready(function () {
 
   //Pulls the current date
@@ -22,7 +20,7 @@ $(document).ready(function () {
       city = lastSearch;
       search();
     } else {
-      city = "Seattle";
+      city = "London";
       search();
     }
   }
@@ -73,7 +71,7 @@ $(document).ready(function () {
   // searches the API for the chosen city
   function search() {
     
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=675941565c105cdba1abdc73a40935e7";
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=675941565c105cdba1abdc73a40935e7";
     let coords = [];
 
     $.ajax({
@@ -84,7 +82,7 @@ $(document).ready(function () {
       coords.push(response.coord.lat);
       coords.push(response.coord.lon);
       let cityName = response.name;
-      let cityCond = response.weather[0].description.toUpperCase();
+      let cityCond = response.weather[0].description;
       let cityTemp = response.main.temp;
       let cityHum = response.main.humidity;
       let cityWind = response.wind.speed;
@@ -113,28 +111,31 @@ $(document).ready(function () {
      
         
       $.ajax({
-        url: "https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}&appid=675941565c105cdba1abdc73a40935e7",
+        url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=3b3b943fb6e5a2ad79d5c786b40330f6",
         method: "GET",
       }).then(function (response) {
-
+        console.log(response);
+        console.log("---------------\nURL: " + queryURL + "\n---------------");
+        console.log("---------------\nLat: " + lat + "\n---------------");
+        console.log("---------------\nLon: " + lon + "\n---------------");
         //forecast temp variables
-        let day1temp = response.daily[1].temp.max;
-        let day2temp = response.daily[2].temp.max;
-        let day3temp = response.daily[3].temp.max;
-        let day4temp = response.daily[4].temp.max;
-        let day5temp = response.daily[5].temp.max;
+        let day1temp = response.list[1].main.temp;
+        let day2temp = response.list[2].main.temp;
+        let day3temp = response.list[3].main.temp;
+        let day4temp = response.list[4].main.temp;
+        let day5temp = response.list[5].main.temp;
         //forecast humidity variables
-        let day1hum = response.daily[1].humidity;
-        let day2hum = response.daily[2].humidity;
-        let day3hum = response.daily[3].humidity;
-        let day4hum = response.daily[4].humidity;
-        let day5hum = response.daily[5].humidity;
+        let day1hum = response.list[1].main.humidity;
+        let day2hum = response.list[2].main.humidity;
+        let day3hum = response.list[3].main.humidity;
+        let day4hum = response.list[4].main.humidity;
+        let day5hum = response.list[5].main.humidity;
         //forecast weather icon variables
-        let icon1 = response.daily[1].weather[0].icon;
-        let icon2 = response.daily[2].weather[0].icon;
-        let icon3 = response.daily[3].weather[0].icon;
-        let icon4 = response.daily[4].weather[0].icon;
-        let icon5 = response.daily[5].weather[0].icon;
+        let icon1 = response.list[1].weather[0].icon;
+        let icon2 = response.list[2].weather[0].icon;
+        let icon3 = response.list[3].weather[0].icon;
+        let icon4 = response.list[4].weather[0].icon;
+        let icon5 = response.list[5].weather[0].icon;
         //
         $("#temp1").text("Temp(F):" + " " + day1temp.toFixed(1));
         $("#temp2").text("Temp(F):" + " " + day2temp.toFixed(1));
