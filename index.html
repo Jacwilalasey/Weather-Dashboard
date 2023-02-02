@@ -17,6 +17,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">Weather Dashboard</h1>
+          <p id="currentDay" class="lead"></p>
         </div>
       </div>
     </section>
@@ -25,7 +26,6 @@
       <div class="container">
         <div class="columns">
           <div class="column is-one-quarter content">
-            
             <form>
               <input
                 id="city-input"
@@ -33,7 +33,7 @@
                 type="text"
                 placeholder="London"
               />
-              <button id="submit" class="button is-info" type="submit">
+              <button id="submit" class="button" type="submit">
                 Get Weather
               </button>
             </form>
@@ -44,7 +44,7 @@
                   <tr></tr>
                   <!-- Table data generated in javascript -->
                 </table>
-                <button id="clr-btn" class="button is-danger">CLEAR</button>
+                <button id="clr-btn" class="button">CLEAR</button>
               </div>
             </div>
           </div>

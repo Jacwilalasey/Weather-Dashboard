@@ -1,3 +1,5 @@
+$('#currentDay').text(moment().format("dddd, MMMM Do YY, h:mm a"));
+
 $(document).ready(function () {
 
   //Pulls the current date
@@ -115,9 +117,9 @@ $(document).ready(function () {
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        console.log("---------------\nURL: " + queryURL + "\n---------------");
-        console.log("---------------\nLat: " + lat + "\n---------------");
-        console.log("---------------\nLon: " + lon + "\n---------------");
+        console.log("URL: "+ queryURL);
+        console.log("Lat: " + lat);
+        console.log("Lon: " + lon);
         //forecast temp variables
         let day1temp = response.list[1].main.temp;
         let day2temp = response.list[2].main.temp;
@@ -167,6 +169,7 @@ $(document).ready(function () {
       });
     }
   }
+
 //function to render recently searched cities to page
   function listCities() {
     $("#cityList").text("");
@@ -176,6 +179,7 @@ $(document).ready(function () {
   }
 
   listCities();
+
 //event handler for recently searched cities in table
   $(document).on("click", "td", (e) => {
     e.preventDefault();
@@ -183,6 +187,7 @@ $(document).ready(function () {
     city = listedCity;
     search();
   });
+
 //event handler for clear button
   $("#clr-btn").click(() => {
     localStorage.removeItem("cities");
@@ -190,45 +195,3 @@ $(document).ready(function () {
     listCities();
   });
 });
-
-
-
-// // URL we need to query the database
-// function displayWeatherInfo() {
-
-//     var movie = $(this).attr("data-name");
-//     var APIKey = "3b3b943fb6e5a2ad79d5c786b40330f6";
-//     var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-
-//     // AJAX call to the OpenWeatherMap API
-//     $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//     })
-//     // We store all of the retrieved data inside of an object called "response"
-//     .then(function(response) {
-
-//         // Log the queryURL
-//         console.log(queryURL);
-
-//         // Log the resulting object
-//         console.log(response);
-
-//         // Transfer content to HTML
-//         $(".city").html("<h1>" + response.name + ' - ' + (moment().format("(D/M/YY)")));
-//         $(".wind").text("Wind Speed: " + response.wind.speed);
-//         $(".humidity").text("Humidity: " + response.main.humidity);
-        
-//         // Convert the temp to Celsius
-//         var tempC = response.main.temp - 273.15;
-
-//         // add temp content to html
-//         $(".temp").text("Temperature (K) " + response.main.temp);
-//         $(".tempC").text("Temperature (C) " + tempC.toFixed(2));
-
-//         // Log the data in the console as well
-//         console.log("Wind Speed: " + response.wind.speed);
-//         console.log("Humidity: " + response.main.humidity);
-//         console.log("Temperature (C): " + tempC);
-//     });
-// }
