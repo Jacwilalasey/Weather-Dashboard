@@ -1,7 +1,8 @@
 # Weather-Dashboard
+
+## Description
+
 Weather dashboard using HTML, CSS, JS and JQUERY
-
-
 
 ## Acceptance Criteria
 
@@ -20,3 +21,35 @@ Weather dashboard using HTML, CSS, JS and JQUERY
     * The temperature
     * The humidity
   * When a user click on a city in the search history they are again presented with current and future conditions for that city
+
+## Installation
+
+No installation required.  You can visit the deployed site at:
+
+[https://jacwilalasey.github.io/Work-Day-Scheduler/]
+
+## Built With
+
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- OpenWeather API
+
+## Usage
+
+N/A
+
+## Credits
+
+N/A
+
+## License
+
+Please refer to the LICENSE in the repo.
+
+## Screenshots
+![image](https://user-images.githubusercontent.com/92437517/216448888-54aac8aa-1c09-4bda-9328-e93627e0d6ee.png)
+![image](https://user-images.githubusercontent.com/92437517/216448930-502446e0-234b-4f89-9ec4-8f5f2ea1a651.png)
+
+
