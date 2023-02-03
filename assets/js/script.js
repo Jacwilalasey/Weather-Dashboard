@@ -73,7 +73,7 @@ $(document).ready(function () {
   // searches the API for the chosen city
   function search() {
     
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=675941565c105cdba1abdc73a40935e7";
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=675941565c105cdba1abdc73a40935e7";
     let coords = [];
 
     $.ajax({
@@ -111,7 +111,7 @@ $(document).ready(function () {
      
         
       $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=3b3b943fb6e5a2ad79d5c786b40330f6",
+        url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=3b3b943fb6e5a2ad79d5c786b40330f6",
         method: "GET",
       }).then(function (response) {
         console.log(response);
