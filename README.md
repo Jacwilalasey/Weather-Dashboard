@@ -26,7 +26,7 @@ Weather dashboard using HTML, CSS, JS and JQUERY
 
 No installation required.  You can visit the deployed site at:
 
-[https://jacwilalasey.github.io/Work-Day-Scheduler/]
+[https://jacwilalasey.github.io/Weather-Dashboard/]
 
 ## Built With
 
